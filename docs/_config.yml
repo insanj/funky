@@ -2,7 +2,11 @@
 title: funky
 description: 🎷 simple call & response python to google cloud function
 show_downloads: true
-theme: swanson/lagom
+remote_theme: swanson/lagom
 repository_url: https://github.com/insanj/funky
 author:
   name: insanj
+highlighter: rouge
+data:
+  theme:
+    name: insanj
