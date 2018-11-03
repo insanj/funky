@@ -57,10 +57,39 @@ def funkyTime(request):
 
 ![](cloudie.jpg)
 
-# 🚂 App Engine
+# 🍀 Virtual Machine Instance
 ## 🔥 try it out!
 
 test the live deployment of the gcloud socketio app 🖇
+
+## ⚒ setup
+
+1. create a [new Google Cloud Platform VM instance](https://console.cloud.google.com/compute/instancesAdd) under the (Compute Engine menu)[https://console.cloud.google.com/compute/] for your app in the Google Cloud Console
+```
+Machine Type
+- 1 vCPU
+- 1 GB Memory
+- Ubuntu 18.04 LTS
+```
+
+2. ssh into the VM instance by clicking the button under "remote access", then perform the following commands:
+```
+sudo apt update
+sudo apt install gunicorn python python-dev python3 python3-dev
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+sudo pip install --upgrade virtualenv
+virtualenv --python python3 env
+sudo pip install eventlet flask python-socketio
+git clone https://github.com/insanj/funky && cd funky
+gunicorn -k eventlet -w 1 --bind 35.231.240.246:65080 wsgi
+```
+
+
+# 🚂 App Engine
+## 🔥 try it out!
+
+test the live deployment of the gcloud flask app 🖇
 
 1. run `python funky.py <PARAM>` [to get a simple flask response via python](https://github.com/insanj/funky/archive/master.zip)
 

@@ -1,7 +1,6 @@
 runtime: python
 api_version: '1'
 env: flexible
-service: funky
 threadsafe: false
 handlers:
 - url: /.*
@@ -13,11 +12,4 @@ network:
   instance_tag: websocket
   forwarded_ports:
     - '65080'
-entrypoint: gunicorn -k eventlet -w 1 -b :65080 wsgi
-skip_files:
-- docs
-- ^(.*/)?\.pyc$
-- ^(.*/)?\.git$
-- LICENSE
-- .gitignore
-- README.md
+entrypoint: gunicorn -k eventlet -w 1 -b :$PORT wsgi
