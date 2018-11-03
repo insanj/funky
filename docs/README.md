@@ -74,7 +74,7 @@ To view your application in the web browser run:
 
 ---
 
-1. setup local [Google Cloud Platform Python Development Environment](https://cloud.google.com/python/setup)
+1. (mostly optional) setup local [Google Cloud Platform Python Development Environment](https://cloud.google.com/python/setup)
 - `sudo apt install python python-dev python3 python3-dev`
 - `wget https://bootstrap.pypa.io/get-pip.py`
 - `sudo python get-pip.py`
