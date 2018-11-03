@@ -1,6 +1,6 @@
 runtime: python
 api_version: 1
-threadsafe: true
+threadsafe: false
 env: flex
 
 handlers:
