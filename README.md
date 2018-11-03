@@ -7,7 +7,7 @@
 🔥 test out the live deployment of the gcloud flask python app!
 
 - run `python funky.py <PARAM>` to get a response via python
-- go to https://funky-221323.appspot.com/ to get a response via web browser
+- go to [https://funky-221323.appspot.com/](https://funky-221323.appspot.com/) to get a response via web browser
 
 > put in a custom param to see a custom result based on the endpoint tree (such as [🍗](https://funky-221323.appspot.com/🍗))
 

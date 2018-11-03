@@ -1,23 +1,78 @@
-# funky
+# [🎷 funky](https://github.com/insanj/funky)
 
-🎷 simple call &amp; response python to google cloud function
+---
 
-# example
+simple call &amp; response python to google cloud function
 
-🔥 test out the live deployment of the gcloud flask python app!
+![](funky.gif)
 
-- run `python funky.py <PARAM>` to get a response via python
-- go to https://funky-221323.appspot.com/ to get a response via web browser
 
-> put in a custom param to see a custom result based on the endpoint tree (such as [🍗](https://funky-221323.appspot.com/🍗))
+# 🔥 try it out!
 
-# usage
+---
+
+
+test the live deployment of the gcloud flask python app 🖇
+
+1. run `python funky.py <PARAM>` [to get a response via python](https://github.com/insanj/funky/archive/master.zip)
+2. go to [https://funky-221323.appspot.com/](https://funky-221323.appspot.com/) to get a response via web browser
+
+> try putting in a custom param to see a custom result based on the endpoint tree (such as [🍗](https://funky-221323.appspot.com/🍗))!
+
+# 🚙 usage
+
+---
 
 - modify `main.py` to change flask endpoints
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/<thing>')
+def mirrorThing(thing):
+	return thing
+```
+
 - run `gcloud app deploy` to sync your changes with the google app engine you've set up
+
+```
+$ gcloud app deploy
+Services to deploy:
+
+descriptor:      [/funky/app.yaml]
+source:          [/funky]
+target project:  [funky-221323]
+target service:  [default]
+target version:  [20181102t210815]
+target url:      [https://funky-221323.appspot.com]
+
+
+Do you want to continue (Y/n)?  Y
+
+Beginning deployment of service [default]...
+╔════════════════════════════════════════════════════════════╗
+╠═ Uploading 15 files to Google Cloud Storage               ═╣
+╚════════════════════════════════════════════════════════════╝
+File upload done.
+Updating service [default]...done.
+Setting traffic split for service [default]...done.
+Deployed service [default] to [https://funky-221323.appspot.com]
+
+You can stream logs from the command line by running:
+  $ gcloud app logs tail -s default
+
+To view your application in the web browser run:
+  $ gcloud app browse
+```
+
 - check [app engine dashboard](https://console.cloud.google.com/appengine) to see how the project is faring
 
-# setup
+![](screenie.jpg)
+
+# 🥡 setup
+
+---
 
 1. setup local [Google Cloud Platform Python Development Environment](https://cloud.google.com/python/setup)
 - `sudo apt install python python-dev python3 python3-dev`
@@ -41,10 +96,14 @@
 
 5. deploy using `gcloud app deploy`
 
-# authors
+# 🎨 authors
 
-julian weiss (insanj). (c) 2018. reach out on [github](https://github.com/insanj)!
+---
 
-# license
+julian weiss (insanj), (c) 2018. reach out on [github](https://github.com/insanj)!
 
-funky is licensed under gpl-3.0. [see license file](LICENSE).
+# 🔐 license
+
+---
+
+funky is licensed under gpl-3.0. [see license file](https://github.com/insanj/funky/blob/master/LICENSE).
