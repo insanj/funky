@@ -1,15 +1,23 @@
 runtime: python
-api_version: 1
+api_version: '1'
+env: flexible
+service: funky
 threadsafe: false
-env: flex
-
 handlers:
 - url: /.*
   script: main.app
-
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 1
 network:
-  forwarded_ports:
-  - 65080
   instance_tag: websocket
-
-entrypoint: gunicorn -k eventlet -w 1 -b :$PORT wsgi
+  forwarded_ports:
+    - '65080'
+entrypoint: gunicorn -k eventlet -w 1 -b :65080 wsgi
+skip_files:
+- docs
+- ^(.*/)?\.pyc$
+- ^(.*/)?\.git$
+- LICENSE
+- .gitignore
+- README.md

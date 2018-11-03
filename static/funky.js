@@ -1,4 +1,4 @@
-var the_socket = io.connect(null, {port: location.port, rememberTransport: false});
+var the_socket = io.connect("http://funky.host", {port: 65080, transports: ["websocket"]});
 
 document.getElementById('prompt_input').onkeydown = function(event) {
     var e = event || window.event;

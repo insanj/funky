@@ -1,17 +1,21 @@
-# [🎷 funky](https://github.com/insanj/funky)
+<h1 align="center"><a href="https://github.com/insanj/funky">🎷 funky</a></h1>
+<h4 align="center">simple call &amp; response python to google cloud function</h4>
 
 ---
 
-simple call &amp; response python to google cloud function
+<h2 align="center">Table of Contents</h2>
+1. [⛅ Cloud Function](#-cloud-function)
+2. [🔥 try it out!](#-try-it-out)
+3. [🚙 usage](#-usage)
+4. [🚂 App Engine](#-app-engine)
+5. [🥡 setup](#-setup)
+6. [🎨 authors](#-authors)
+7. [🔐 license](#-license)
 
-## Table of Contents
-- [Cloud Function](#cloud-function)
-- [App Engine](#app-engine)
+<br/>
 
-# Cloud Function
 
----
-
+# ⛅ Cloud Function
 ## 🔥 try it out!
 
 ---
@@ -53,21 +57,17 @@ def funkyTime(request):
 
 ![](cloudie.jpg)
 
-# App Engine
-
----
-
+# 🚂 App Engine
 ## 🔥 try it out!
 
 test the live deployment of the gcloud socketio app 🖇
 
 1. run `python funky.py <PARAM>` [to get a simple flask response via python](https://github.com/insanj/funky/archive/master.zip)
 
-> try putting in a custom param to see a custom result based on the endpoint tree (such as [🍗](https://funky.host/🍗))!
-
 2. go to [https://funky.host/](https://funky.host/) to establish a socketio connection response via web browser
 
 > try connecting with more than one web browser to send messages to each other! 
+> try putting in a custom param to see a custom result based on the endpoint tree (such as [🍗](https://funky.host/🍗))!
 
 ---
 
@@ -149,9 +149,9 @@ To view your application in the web browser run:
 5. deploy using `gcloud app deploy`
 
 6. enable websocket use by running the following command:
-```
-gcloud compute firewall-rules create default-allow-websockets --allow tcp:65080 --target-tags websocket --description "allow websocket traffic on port 65080"
-```
+
+`gcloud compute firewall-rules create default-allow-websockets --allow tcp:65080 --target-tags websocket --description "allow websocket traffic on port 65080"
+`
 
 > using websockets requires a configured billing account linked to your app engine project. using the basic flask endpoints, however, does not.
 

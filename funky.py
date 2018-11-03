@@ -4,7 +4,7 @@ import sys
 import urllib2
 
 param = sys.argv[-1]
-baseurl = "https://funky-221323.appspot.com/"
+baseurl = "https://funky.host/"
 funkyurl = baseurl + param
 response = urllib2.urlopen(funkyurl)
 print response.read()

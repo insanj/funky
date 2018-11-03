@@ -37,7 +37,7 @@ def connect(sid, data):
 	if sid not in people:
 		people.append(sid)
 		sio.enter_room(sid, "room")
-		sio.emit("text_response", {"text" : str(sid) + " connected", "flag" : True}, room="room")
+		sio.emit("text_response", {"text" : str(sid) + " connected"}, room="room")
 
 @sio.on('disconnect')
 def disconnect(sid):
@@ -47,4 +47,4 @@ def disconnect(sid):
 
 @sio.on("prompt_input")
 def prompt_input(sid, data):
-	sio.emit("text_response", {"text" : str(sid) + ":" + data["text"], "flag" : False}, room="room")
+	sio.emit("text_response", {"text" : str(sid) + ":" + data["text"]}, room="room")
