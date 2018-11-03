@@ -1,0 +1,8 @@
+# this is a github pages site config file, not needed for gcloud!
+title: funky
+description: 🎷 simple call & response python to google cloud function
+show_downloads: true
+theme: swanson/lagom
+repository_url: https://github.com/insanj/funky
+author:
+  name: insanj
