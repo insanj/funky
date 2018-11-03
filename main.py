@@ -37,9 +37,10 @@ def connect(sid, data):
 
 @sio.on('disconnect')
 def disconnect(sid):
-	sio.emit("text_response", {"text" : str(sid) + " disconnected", "flag" : True}, room="room")
-	sio.leave_room(sid, "room")
+	print str(sid) + " disconnected"
+	#sio.emit("text_response", {"text" : str(sid) + " disconnected", "flag" : True}, room="room")
+	#sio.leave_room(sid, "room")
 
 @sio.on("prompt_input")
 def prompt_input(sid, data):
-	sio.emit("text_response", {"text" : data["text"], "flag" : False}, room="room")
+	sio.emit("text_response", {"text" : str(sid) + ":" + data["text"], "flag" : False}, room="room")

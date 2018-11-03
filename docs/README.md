@@ -4,26 +4,76 @@
 
 simple call &amp; response python to google cloud function
 
-![](funky.gif)
+## Table of Contents
+- [Cloud Function](#cloud-function)
+- [App Engine](#app-engine)
 
-
-# 🔥 try it out!
-
----
-
-
-test the live deployment of the gcloud flask python app 🖇
-
-1. run `python funky.py <PARAM>` [to get a response via python](https://github.com/insanj/funky/archive/master.zip)
-2. go to [https://funky-221323.appspot.com/](https://funky-221323.appspot.com/) to get a response via web browser
-
-> try putting in a custom param to see a custom result based on the endpoint tree (such as [🍗](https://funky-221323.appspot.com/🍗))!
-
-# 🚙 usage
+# Cloud Function
 
 ---
 
-- modify `main.py` to change flask endpoints
+## 🔥 try it out!
+
+---
+
+- go to [https://us-central1-funky-221323.cloudfunctions.net/chicken-or-pasta](https://us-central1-funky-221323.cloudfunctions.net/chicken-or-pasta) to get a response via web browser
+
+## 🚙 usage
+
+---
+
+- [edit or create a new cloud function](https://console.cloud.google.com/functions) using Python 3.7 using this template:
+```python
+# -*- coding: utf8 -*-
+def funkyTime(request):
+	"""Responds to any HTTP request.
+	Args:
+	request (flask.Request): HTTP request object.
+	Returns:
+	The response text or any set of values that can be turned into a
+	Response object using
+	`make_response <http://flask.pocoo.org/docs/0.12/api/#flask.Flask.make_response>`.
+	"""
+	request_json = request.get_json()
+	message = None
+	if request.args and 'message' in request.args:
+		message = request.args.get('message')
+	elif request_json and 'message' in request_json:
+		message = request_json['message']
+
+	if message == u'🍗':
+		return "🍝"
+	elif message == u'🍝':
+		return "🍗"
+	else:
+		return "👎"
+```
+
+- your google cloud platform console should look like this once completed:
+
+![](cloudie.jpg)
+
+# App Engine
+
+---
+
+## 🔥 try it out!
+
+test the live deployment of the gcloud socketio app 🖇
+
+1. run `python funky.py <PARAM>` [to get a simple flask response via python](https://github.com/insanj/funky/archive/master.zip)
+
+> try putting in a custom param to see a custom result based on the endpoint tree (such as [🍗](https://funky.host/🍗))!
+
+2. go to [https://funky.host/](https://funky.host/) to establish a socketio connection response via web browser
+
+> try connecting with more than one web browser to send messages to each other! 
+
+---
+
+## 🚙 usage
+
+- modify `main.py` to change flask endpoints or add socket features
 
 ```python
 from flask import Flask
@@ -104,6 +154,8 @@ gcloud compute firewall-rules create default-allow-websockets --allow tcp:65080 
 ```
 
 > using websockets requires a configured billing account linked to your app engine project. using the basic flask endpoints, however, does not.
+
+> add more dependancies by editing the `requirements.txt` file or following [the custom library instructions](https://cloud.google.com/appengine/docs/standard/python/tools/using-libraries-python-27)
 
 
 # 🎨 authors
