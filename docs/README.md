@@ -34,6 +34,8 @@ def mirrorThing(thing):
 	return thing
 ```
 
+- locally run `gunicorn -k eventlet -w 1 --bind 0.0.0.0:$(PORT) wsgi` to test the flask/socket server
+
 - run `gcloud app deploy` to sync your changes with the google app engine you've set up
 
 ```
@@ -95,6 +97,14 @@ To view your application in the web browser run:
 - requires logging into google account and setting up `PATH`
 
 5. deploy using `gcloud app deploy`
+
+6. enable websocket use by running the following command:
+```
+gcloud compute firewall-rules create default-allow-websockets --allow tcp:65080 --target-tags websocket --description "allow websocket traffic on port 65080"
+```
+
+> using websockets requires a configured billing account linked to your app engine project. using the basic flask endpoints, however, does not.
+
 
 # 🎨 authors
 

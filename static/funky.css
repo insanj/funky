@@ -1,0 +1,35 @@
+
+body {
+	background-color: black;
+	color: green;
+	font-size: 2em;
+	font-family: 'courier';
+}
+
+#prompt {
+	border-bottom: 2px solid green;
+	padding: 1px;
+}
+
+#prompt_input {
+	border: none;
+	background-color: black;
+	color: green;
+	font-size: 2em;
+	font-family: 'courier';
+	width: 92%;
+}
+
+#prompt_input:focus {
+	outline: none;
+}
+
+#text_display {
+	width: 100%;
+}
+
+#text_display pre {
+	line-height: 1;
+	white-space: pre-wrap;
+	margin: 0px;
+}
