@@ -1,6 +1,11 @@
 # funky
 🎷 simple call &amp; response python to google cloud function
 
+# use
+
+- modify `main.py` to change flask endpoints
+- run `gcloud app deploy` to sync your changes with the google app engine you've set up
+
 # setup
 
 1. setup local [Google Cloud Platform Python Development Environment](https://cloud.google.com/python/setup)
@@ -25,7 +30,10 @@
 
 5. deploy using `gcloud app deploy`
 
-# use
+# authors
 
-- modify `main.py` to change flask endpoints
-- run `gcloud app deploy` to sync your changes with the google app engine you've set up
+julian weiss (insanj). (c) 2018. reach out on [github](https://github.com/insanj)!
+
+# license
+
+funky is licensed under gpl-3.0. [see license file](LICENSE).
